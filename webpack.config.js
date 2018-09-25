@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -6,7 +7,12 @@ module.exports = {
     filename: 'bundle.js'
   },
   devServer: {
-    contentBase: './dest'
+    contentBase: './dest',
+    hot:true,
+    port:9000,
+    compress:true,
+    noInfo:true,
+    open:true,
   },
  module :{
     rules:[{
@@ -19,4 +25,7 @@ module.exports = {
 resolve :{
    extensions :['*','.js','.jsx'] 
 }, 
+plugins:[
+    new webpack.HotModuleReplacementPlugin()
+]
 };
