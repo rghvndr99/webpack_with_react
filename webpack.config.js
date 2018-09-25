@@ -6,12 +6,13 @@ module.exports = {
     publicPath: '/',
     filename: 'bundle.js'
   },
+ devtool:'source-map',
   devServer: {
     contentBase: './dest',
     hot:true,
     port:9000,
     compress:true,
-    noInfo:true,
+    noInfo:false,
     open:true,
   },
 performance:{
@@ -31,7 +32,8 @@ watchOptions:{
     ]
 },
 resolve :{
-   extensions :['*','.js','.jsx'] 
+   extensions :['*','.js','.jsx'],
+    enforceExtension: false
 }, 
 plugins:[
     new webpack.HotModuleReplacementPlugin()
