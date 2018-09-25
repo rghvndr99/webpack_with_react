@@ -14,6 +14,14 @@ module.exports = {
     noInfo:true,
     open:true,
   },
+performance:{
+    maxEntrypointSize:400,
+    hints: 'warning'
+},
+watchOptions:{
+    aggregateTimeout: 600,
+    ignored: /node_modules/
+},
  module :{
     rules:[{
        test: /\.(js|jsx)$/,
