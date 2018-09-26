@@ -17,7 +17,10 @@ module.exports = {
   },
 performance:{
     maxEntrypointSize:400,
-    hints: 'warning'
+    hints: 'warning',
+    spiltChunks:{
+        chunks:"all"
+    }
 },
 watchOptions:{
     aggregateTimeout: 600,
