@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development --watch"    
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development --watch"
   },
-  "sideEffects":false,
+  "sideEffects": false,
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -20,6 +20,8 @@
     "webpack-dev-server": "^3.1.9"
   },
   "dependencies": {
+    "clean-webpack-plugin": "^0.1.19",
+    "html-webpack-plugin": "^3.2.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2"
   }
