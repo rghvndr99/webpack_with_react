@@ -1,12 +1,16 @@
 const webpack = require('webpack');
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+      index:'./src/index.js',
+      
+  },
+  
   output: {
     path: __dirname + '/dest',
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: '[name].bundle.js'
   },
- devtool:'source-map',
+ devtool:'inline-source-map',
   devServer: {
     contentBase: './dest',
     hot:true,
@@ -18,9 +22,6 @@ module.exports = {
 performance:{
     maxEntrypointSize:400,
     hints: 'warning',
-    spiltChunks:{
-        chunks:"all"
-    }
 },
 watchOptions:{
     aggregateTimeout: 600,

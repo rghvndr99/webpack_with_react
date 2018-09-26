@@ -6,6 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js --mode development --watch"    
   },
+  "sideEffects":false,
   "author": "",
   "license": "ISC",
   "devDependencies": {
