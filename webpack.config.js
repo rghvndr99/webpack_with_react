@@ -1,8 +1,7 @@
 const webpack = require('webpack');
 module.exports = {
   entry: {
-      index:'./src/index.js',
-      
+      index:'./src/index.js',      
   },
   
   output: {
@@ -22,6 +21,11 @@ module.exports = {
 performance:{
     maxEntrypointSize:400,
     hints: 'warning',
+},
+optimization:{
+    splitChunks:{
+        chunks:"all"
+    }
 },
 watchOptions:{
     aggregateTimeout: 600,
