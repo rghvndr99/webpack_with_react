@@ -1,19 +1,20 @@
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
   entry: {
       index:'./src/index.js',      
   },
   
   output: {
-    path: __dirname + '/dest',
+    path: __dirname + '/dist',
     publicPath: '/',
-    filename: '[name].bundle.js'
+    filename: '[name].[hash].js'
   },
  devtool:'inline-source-map',
   devServer: {
-    contentBase: './dest',
-    hot:true,
-    port:9000,
+    contentBase: './dist',
+        port:9000,
     compress:true,
     noInfo:false,
     open:true,
@@ -23,8 +24,15 @@ performance:{
     hints: 'warning',
 },
 optimization:{
+    runtimeChunk:"single",
     splitChunks:{
-        chunks:"all"
+        cacheGroups:{
+            vendor: {
+                test:/[\\/]node_modules[\\/]/,
+                name:'lib',
+                chunks:'all'
+            }
+        }
     }
 },
 watchOptions:{
@@ -44,6 +52,10 @@ resolve :{
     enforceExtension: false
 }, 
 plugins:[
-    new webpack.HotModuleReplacementPlugin()
+        new HtmlWebpackPlugin({
+      template:"./src/index.html",
+      filename: "index.html"
+  }),
+  new webpack.HashedModuleIdsPlugin()
 ]
 };
